@@ -1,3 +1,7 @@
-export function checkIfCellWillBeDead(cell: { dead: boolean; }) {
+interface Cell {
+    dead: boolean
+}
+
+export function checkIfCellWillBeDead(cell: Cell) {
     return true
 }
