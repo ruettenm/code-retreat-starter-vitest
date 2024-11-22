@@ -10,7 +10,10 @@ describe("Game Of Live", () => {
     expect(checkStatusForNextGeneration(cell)).toBe("dead")
   })
 
-  it("should survice if surrounded by 2 living cells", () => {
+  describe('2 cells', () => {
+
+  })
+  it("should survive if surrounded by 2 living cells", () => {
     const cell: Cell = {
       status: "alive",
       livingNeighbours: 2
@@ -18,5 +21,31 @@ describe("Game Of Live", () => {
 
     expect(checkStatusForNextGeneration(cell)).toBe("alive")
   })
-});
 
+  it("should survive if surrounded by 3 living cells", () => {
+    const cell: Cell = {
+      status: "alive",
+      livingNeighbours: 3
+    }
+
+    expect(checkStatusForNextGeneration(cell)).toBe("alive")
+  })
+
+  it("should reproduce if surrounded by 3 living cells", () => {
+    const cell: Cell = {
+      status: "dead",
+      livingNeighbours: 3
+    }
+
+    expect(checkStatusForNextGeneration(cell)).toBe("alive")
+  })
+
+  it("should not reproduce if surrounded by 2 living cells", () => {
+    const cell: Cell = {
+      status: "dead",
+      livingNeighbours: 2
+    }
+
+    expect(checkStatusForNextGeneration(cell)).toBe("dead")
+  })
+});
