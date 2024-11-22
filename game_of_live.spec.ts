@@ -8,9 +8,19 @@ describe("Game Of Live", () => {
 
   it("should die if underpopulation", () => {
     const cell = {
-      dead: false
+      dead: false,
+      livingNeighbours: 1
     }
     expect(checkIfCellWillBeDead(cell)).toBe(true)
+  })
+
+  it("should survice if surrounded by 2 living cells", () => {
+    const cell = {
+      dead: false,
+      livingNeighbours: 2
+    }
+
+    expect(checkIfCellWillBeDead(cell)).toBe(false)
   })
 });
 
