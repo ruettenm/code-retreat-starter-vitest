@@ -1,11 +1,11 @@
-interface Cell {
-    dead: boolean
+export interface Cell {
+    status: "dead" | "alive"
     livingNeighbours: number;
 }
 
-export function checkIfCellWillBeDead(cell: Cell) {
+export const checkStatusForNextGeneration = (cell: Cell): "dead" | "alive" => {
     if(cell.livingNeighbours === 2) {
-        return false;
+        return "alive";
     }
-    return true
-}
+    return "dead"
+};
