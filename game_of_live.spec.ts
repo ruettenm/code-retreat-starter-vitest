@@ -13,6 +13,7 @@ describe("Game Of Live", () => {
   describe('2 cells', () => {
 
   })
+
   it("should survive if surrounded by 2 living cells", () => {
     const cell: Cell = {
       status: "alive",
